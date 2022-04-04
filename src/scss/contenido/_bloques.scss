@@ -1,0 +1,47 @@
+@use "../base/mixins";
+@use "../base/variables";
+
+.bloques{
+    &__grid{
+        @include mixins.tablet{
+            @include mixins.grid(2, 0rem);
+            grid-auto-flow: dense;  // <-------Llena los espacios en blanco antes de crear otra fila
+        }
+    }
+}
+.bloque{
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &:nth-child(1){
+        background-color: variables.$primario;
+    }
+    &:nth-child(2){
+        background-image: url(../img/bloque_1.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &:nth-child(3){
+        grid-column: 2/3;
+        background-color: variables.$secundario;
+    }
+    &:nth-child(4){
+        @include mixins.bgImage("../img/bloque_2.jpg");
+    }
+    &__contenido{
+        max-width: 40rem;
+        border-block: 1px solid variables.$blanco;
+        color: variables.$blanco;
+        padding: 1rem 0;
+    }
+    &__heading{
+        text-transform: uppercase;
+    }
+    &__texto{
+        font-size: 2rem;
+    }
+}
