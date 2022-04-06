@@ -1,0 +1,21 @@
+@use "../base/mixins";
+@use "../base/variables";
+
+.nosotros{
+    padding: 5rem 0;
+    &__heading{
+        @include mixins.heading;
+       
+    }
+    &__grid{
+        @include mixins.tablet{
+            @include mixins.grid(3,2rem);
+        }
+    }
+    &__bloque{
+        text-align: center;
+    }
+    &__imagen{
+        margin: 0 auto;
+    }
+}

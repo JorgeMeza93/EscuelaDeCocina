@@ -1,0 +1,53 @@
+@use "../base/variables";
+@use "../base/mixins";
+
+.clases{
+    background-color: variables.$gris;
+    padding: 5rem 0;
+    &__heading{
+        @include mixins.heading;
+    }
+    &__grid{
+        @include mixins.tablet{
+            @include mixins.grid(2, 2rem);
+        }
+        @include mixins.desktop{
+            @include mixins.grid(3, 2rem);
+        }
+    }
+}
+.clase{
+    border: 1px solid darken(variables.$gris, 10%);
+    background-color: variables.$blanco;
+    &__meta{
+        background-color: variables.$primario;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        color:variables.$blanco;
+    }
+    &__nombre{
+        min-height: 5.5rem;
+    }
+    &__precio{
+        background-color: variables.$secundario;
+        padding: .5rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: variables.$negro;
+        border-radius: 1rem;
+    }
+    &__contenido{
+        padding: 2rem;
+    }
+    &__descripcion{
+        color: variables.$primario;
+    }
+    &__enlace{
+        @include mixins.boton(variables.$primario, variables.$blanco);
+        display: block;
+        font-size: 1.6rem;
+        padding: 1rem;
+    }
+}
